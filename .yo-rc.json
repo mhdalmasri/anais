@@ -1,0 +1,24 @@
+{
+  "generator-nikita": {
+    "version": "6.0.3",
+    "name": "my-project",
+    "template": "web-app",
+    "custom": true,
+    "rootFolder": "",
+    "features": [
+      "preCommitHook",
+      "webfonts",
+      "svgBackgrounds"
+    ],
+    "jsFramework": "react",
+    "scssMixins": [
+      "a11y-hide",
+      "clearfix",
+      "ellipsis",
+      "fixed-ratiobox",
+      "hide-text",
+      "triangle"
+    ],
+    "libraries": []
+  }
+}

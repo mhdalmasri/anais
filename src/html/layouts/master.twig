@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+        <title>{% block title %}{% endblock %}</title>
+
+        <meta name="description" content="{% block description %}{% endblock %}" />
+        <meta name="keywords" content="" />
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+
+        <link href="{{ asset('/generated/styles.css') }}" rel="stylesheet" />
+        <meta class="foundation-mq" />
+
+        {% include '@partials/appicons.twig' %}
+    </head>
+    <body>
+
+        {% block body %}{% endblock %}
+
+        <script src="{{ asset('/generated/main.js') }}"></script>
+    </body>
+</html>

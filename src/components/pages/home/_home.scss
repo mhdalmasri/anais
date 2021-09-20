@@ -1,0 +1,11 @@
+.b-home {
+    overflow: hidden;
+    display: flex;
+    height: 100%;
+    padding: 100px 40px;
+    background-image: url("../../../../static/img/bg.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    justify-content: space-around;
+}

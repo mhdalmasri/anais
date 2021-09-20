@@ -1,0 +1,21 @@
+// Button-Extends
+
+// Standard Button-Placeholder
+%btn {
+    position: relative;
+    display: inline-block;
+    font-family: $base-font;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all $base-animation-duration ease-out;
+}
+
+%btn:focus,
+%btn:hover {
+    outline: none; // don't forget to define an alternative styling!
+}
+
+%btn[disabled] {
+    cursor: not-allowed;
+}

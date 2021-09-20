@@ -1,0 +1,31 @@
+.b-textarea {
+    .textarea-field {
+        display: block;
+        width: 100%;
+        min-height: 6em;
+        outline: 0;
+        border: 1px solid $light-gray;
+        border-radius: 4px;
+        padding: 1rem;
+        font-size: $base-fontsize;
+        color: $dark-gray;
+        resize: vertical;
+        transition: border-color .2s;
+
+        &:not(:disabled) {
+            &:hover {
+                border-color: $medium-gray;
+            }
+
+            &:focus {
+                border-color: $primary-color;
+                font-size: $base-fontsize; /* fix flickering in chrome */
+            }
+        }
+
+        &:disabled {
+            color: $medium-gray;
+            background-color: $light-gray;
+        }
+    }
+}
