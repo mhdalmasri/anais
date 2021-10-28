@@ -1,11 +1,513 @@
 .b-home {
-    overflow: hidden;
-    display: flex;
-    height: 100%;
-    padding: 100px 40px;
-    background-image: url("../../../../static/img/bg.jpg");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    justify-content: space-around;
+  padding: 50px;
+
+  a {
+    text-decoration: none;
+    color: #232323;
+    :hover {
+      color: tomato;
+    }
+  }
+
+  .menuToggle {
+    margin-bottom: 50px;
+    position: relative;
+    z-index: 1;
+    user-select: none;
+  }
+
+  .home {
+    position: absolute;
+    top: -3px;
+    left: 60px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .menuToggle input {
+    margin: 0;
+    width: 34px;
+    height: 32px;
+    position: absolute;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 2;
+  }
+
+  .menuToggle span {
+    display: block;
+    width: 34px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    background: #000;
+    border-radius: 3px;
+    z-index: 1;
+    transform-origin: 4px 0px;
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+  }
+
+  .menuToggle span:first-child {
+    transform-origin: 0% 0%;
+  }
+
+  .menuToggle span:nth-last-child(2) {
+    transform-origin: 0% 100%;
+  }
+
+  .menuToggle input:checked ~ span {
+    opacity: 1;
+    transform: rotate(45deg) translate(-2px, -1px);
+    background: #000;
+  }
+
+  .menuToggle input:checked ~ span:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+  }
+
+  .menuToggle input:checked ~ span:nth-last-child(2) {
+    transform: rotate(-45deg) translate(0, -1px);
+  }
+
+  .menu {
+    position: absolute;
+    width: 300px;
+    margin: -100px 0 0 -50px;
+    padding: 50px;
+    padding-top: 125px;
+    background: #e3d5bb;
+    list-style-type: none;
+    transform-origin: 0% 0%;
+    transform: translate(-100%, 0);
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  }
+
+  .menu li {
+    padding: 10px 0;
+    font-size: 22px;
+  }
+
+  .menuToggle input:checked ~ ul {
+    transform: none;
+  }
+
+  .content {
+    display: grid;
+    grid-template-areas:
+      'title illustration'
+      'title illustration'
+      'form illustration';
+    grid-template-columns: repeat(2, 1fr);
+
+    .title {
+      @keyframes title {
+        to {
+          opacity: 1;
+          transform: translate(0, 25%);
+        }
+      }
+      height: 440px;
+      opacity: 0;
+      width: 75%;
+      margin: 0;
+      font-size: 70px;
+      font-weight: bold;
+      line-height: 90px;
+      transform: translate(100px, 25%);
+      animation: title 1s ease-in-out forwards 1.5s;
+      grid-area: title;
+      color: black;
+    }
+
+    .form {
+      @keyframes form {
+        to {
+          opacity: 1;
+        }
+      }
+
+      opacity: 0;
+      padding-top: 55px;
+      height: 220px;
+      grid-area: form;
+      justify-content: space-between;
+      display: grid;
+      grid-template-columns: repeat(1, 1fr 1fr);
+      grid-template-areas: 'dropdown location';
+      animation: form 1s ease forwards 2s;
+    }
+
+    .box {
+      width: 100%;
+      height: 220px;
+    }
+
+    .illustration {
+      display: grid;
+      grid-area: illustration;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .shape1 {
+      @keyframes shape1 {
+        50% {
+          clip-path: polygon(50% 50%, 0 50%, 0 0, 0 0);
+        }
+
+        100% {
+          clip-path: polygon(50% 50%, 0 50%, 0 0, 50% 0);
+        }
+      }
+      width: 200%;
+      height: 200%;
+      border-radius: 50%;
+      background: #91d4dd;
+      animation: shape1 0.5s linear forwards 1s;
+      clip-path: polygon(50% 50%, 0 50%, 0 50%, 0% 50%);
+    }
+
+    .shape2 {
+      @keyframes shape2 {
+        12.5% {
+          clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 0, 100% 0, 100% 0, 100% 0, 100% 0);
+        }
+
+        25% {
+          clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 50%, 100% 50%, 100% 50%, 100% 50%, 100% 50%);
+        }
+
+        37.5% {
+          clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 50%, 100% 100%, 100% 100%, 100% 100%, 100% 100%);
+        }
+
+        50% {
+          clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 50%, 100% 100%, 50% 100%, 50% 100%, 50% 100%);
+        }
+
+        62.5% {
+          clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 50%, 100% 100%, 50% 100%, 0 100%, 0 100%);
+        }
+
+        75% {
+          clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 50%, 100% 100%, 0 100%, 0 50%, 0 50%);
+        }
+
+        87.5% {
+          clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 50%, 100% 100%, 0 100%, 0 0, 0 0);
+        }
+
+        100% {
+          clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 50%, 100% 100%, 0 100%, 0 0, 50% 0);
+        }
+      }
+
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: url('../img/photo-2.png') center/cover;
+      animation: shape2 0.5s linear forwards 0.5s;
+      clip-path: polygon(50% 50%, 50% 0, 50% 0, 50% 0, 50% 0, 50% 0, 50% 0, 50% 0);
+    }
+
+    .shape3 {
+      @keyframes shape3 {
+        50% {
+          clip-path: polygon(50% 50%, 50% 100%, 0 100%, 0 100%);
+        }
+
+        100% {
+          clip-path: polygon(50% 50%, 50% 100%, 0 100%, 0 50%);
+        }
+      }
+      width: 200%;
+      height: 200%;
+      border-radius: 50%;
+      background: #f6baba;
+      transform: translate(0, -50%);
+      animation: shape3 0.5s linear forwards;
+      clip-path: polygon(50% 50%, 50% 100%, 50% 100%, 50% 100%);
+    }
+
+    .shape4 {
+      @keyframes shape4 {
+        50% {
+          clip-path: polygon(50% 50%, 100% 50%, 100% 100%, 100% 100%);
+        }
+
+        100% {
+          clip-path: polygon(50% 50%, 100% 50%, 100% 100%, 50% 100%);
+        }
+      }
+      width: 200%;
+      height: 200%;
+      border-radius: 50%;
+      background: #033e56;
+      transform: translate(-50%, -50%);
+      animation: shape4 0.5s linear forwards 1s;
+      clip-path: polygon(50% 50%, 100% 50%, 100% 50%, 100% 50%);
+    }
+
+    .shape5 {
+      @keyframes shape5 {
+        50% {
+          clip-path: polygon(50% 50%, 100% 50%, 100% 0, 100% 0);
+        }
+
+        100% {
+          clip-path: polygon(50% 50%, 100% 50%, 100% 0, 50% 0);
+        }
+      }
+      width: 200%;
+      height: 200%;
+      border-radius: 50%;
+      background: #fb7761;
+      transform: translate(-50%, 0);
+      animation: shape5 0.5s linear forwards 0.5s;
+      clip-path: polygon(50% 50%, 100% 50%, 100% 50%, 100% 50%);
+    }
+
+    .shape6 {
+      @keyframes shape6 {
+        50% {
+          clip-path: polygon(50% 50%, 50% 0, 0 0, 0 0);
+        }
+
+        100% {
+          clip-path: polygon(50% 50%, 50% 0, 0 0, 0 50%);
+        }
+      }
+      width: 200%;
+      height: 200%;
+      border-radius: 50%;
+      background: #2a563f;
+      transform: translate(0, 0);
+      animation: shape6 0.5s linear forwards;
+      clip-path: polygon(50% 50%, 50% 0, 0 0, 50% 0);
+    }
+
+    .shape7 {
+      @keyframes shape7 {
+        12.5% {
+          clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 0, 100% 0, 100% 0, 100% 0, 100% 0);
+        }
+
+        25% {
+          clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 50%, 100% 50%, 100% 50%, 100% 50%, 100% 50%);
+        }
+
+        37.5% {
+          clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 50%, 100% 100%, 100% 100%, 100% 100%, 100% 100%);
+        }
+
+        50% {
+          clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 50%, 100% 100%, 50% 100%, 50% 100%, 50% 100%);
+        }
+
+        62.5% {
+          clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 50%, 100% 100%, 50% 100%, 0 100%, 0 100%);
+        }
+
+        75% {
+          clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 50%, 100% 100%, 0 100%, 0 50%, 0 50%);
+        }
+
+        87.5% {
+          clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 50%, 100% 100%, 0 100%, 0 0, 0 0);
+        }
+
+        100% {
+          clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 50%, 100% 100%, 0 100%, 0 0, 50% 0);
+        }
+      }
+      padding-top: 55px;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: #f8bcbc;
+      transform: translate(0, 0);
+      animation: shape7 0.5s linear forwards 1s;
+      clip-path: polygon(50% 50%, 50% 0, 50% 0, 50% 0, 50% 0, 50% 0, 50% 0, 50% 0);
+    }
+
+    .shape8 {
+      @keyframes shape8 {
+        50% {
+          clip-path: polygon(50% 50%, 50% 100%, 0 100%, 0 100%);
+        }
+
+        100% {
+          clip-path: polygon(50% 50%, 50% 100%, 0 100%, 0 50%);
+        }
+      }
+      width: 200%;
+      height: 200%;
+      border-radius: 50%;
+      background: #e3d5bb;
+      transform: translate(0, -50%);
+      animation: shape8 0.5s linear forwards 0.5s;
+      clip-path: polygon(50% 50%, 50% 100%, 50% 100%, 50% 100%);
+    }
+
+    .shape9 {
+      @keyframes shape9 {
+        12.5% {
+          clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 0, 100% 0, 100% 0, 100% 0, 100% 0);
+        }
+
+        25% {
+          clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 50%, 100% 50%, 100% 50%, 100% 50%, 100% 50%);
+        }
+
+        37.5% {
+          clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 50%, 100% 100%, 100% 100%, 100% 100%, 100% 100%);
+        }
+
+        50% {
+          clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 50%, 100% 100%, 50% 100%, 50% 100%, 50% 100%);
+        }
+
+        62.5% {
+          clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 50%, 100% 100%, 50% 100%, 0 100%, 0 100%);
+        }
+
+        75% {
+          clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 50%, 100% 100%, 0 100%, 0 50%, 0 50%);
+        }
+
+        87.5% {
+          clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 50%, 100% 100%, 0 100%, 0 0, 0 0);
+        }
+
+        100% {
+          clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 50%, 100% 100%, 0 100%, 0 0, 50% 0);
+        }
+      }
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: url('../img/photo-1.png') center/cover;
+      animation: shape9 0.5s linear forwards;
+      clip-path: polygon(50% 50%, 50% 0, 50% 0, 50% 0, 50% 0, 50% 0, 50% 0, 50% 0);
+    }
+
+    .shape11 {
+      @keyframes shape11 {
+        from {
+          opacity: 0;
+          top: 490px;
+          right: 545px;
+          width: 436px;
+          height: 109px;
+        }
+
+        to {
+          opacity: 0.5;
+          top: 490px;
+          right: 545px;
+          width: 436px;
+          height: 109px;
+        }
+      }
+      overflow: hidden;
+      position: absolute;
+      z-index: -1;
+      box-shadow: 0 0 50px 10px rgba(0, 0, 0, 0.1);
+      background: #fff;
+      animation: shape11 1.5s ease forwards 1.5s;
+    }
+
+    .shape12 {
+      @keyframes shape12 {
+        from {
+          opacity: 0;
+          top: 490px;
+          right: 545px;
+          width: 109px;
+          height: 109px;
+        }
+
+        to {
+          opacity: 0.5;
+          top: 490px;
+          right: 545px;
+          width: 109px;
+          height: 109px;
+        }
+      }
+      overflow: hidden;
+      position: absolute;
+      background: #e3a3a3;
+      animation: shape12 1.5s ease forwards 1.5s;
+      clip-path: circle(100% at 100% 50%);
+    }
+
+    .shape13 {
+      @keyframes shape13 {
+        from {
+          opacity: 0;
+          top: 490px;
+          right: 984px;
+          width: 327px;
+          height: 109px;
+        }
+
+        to {
+          opacity: 0.5;
+          top: 490px;
+          right: 984px;
+          width: 327px;
+          height: 109px;
+        }
+      }
+      overflow: hidden;
+      position: absolute;
+      z-index: -1;
+      box-shadow: 0 0 50px 10px rgba(0, 0, 0, 0.1);
+      background: #fff;
+      animation: shape13 1.5s ease forwards 1.5s;
+    }
+
+    .dropdown {
+      padding: 0 40px;
+      grid-area: dropdown;
+      height: 50%;
+      border: none;
+      outline: none;
+      background-color: rgba(0, 0, 0, 0.1);
+      font-family: 'Font Awesome 5 Free';
+      font-weight: bold;
+    }
+
+    .location {
+      padding: 0 40px;
+      height: 50%;
+      grid-area: location;
+      border: none;
+      outline: none;
+      background-color: rgba(0, 0, 0, 0.1);
+      font-family: 'Font Awesome 5 Free';
+      font-weight: bold;
+      &::placeholder {
+        color: black;
+      }
+    }
+
+    .submit {
+      @keyframes submit {
+        to {
+          opacity: 1;
+        }
+      }
+      opacity: 0;
+      height: 50%;
+      width: 50%;
+      font-size: 24px;
+      border: none;
+      outline: none;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.1);
+      animation: submit 1s ease forwards 2s;
+    }
+  }
 }
