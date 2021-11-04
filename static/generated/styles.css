@@ -379,26 +379,49 @@ button {
     margin: 2rem; }
 
 .b-home {
-  padding: 50px; }
-  .b-home a {
+  padding: 50px;
+  height: 100vh;
+  overflow: hidden; }
+  .b-home .header {
+    height: 70px;
+    opacity: 0;
+    display: flex;
+    justify-content: space-between;
+    -webkit-animation: header 1s ease forwards 2s;
+            animation: header 1s ease forwards 2s; }
+
+@-webkit-keyframes header {
+  to {
+    opacity: 1; } }
+
+@keyframes header {
+  to {
+    opacity: 1; } }
+  .b-home .link {
     text-decoration: none;
-    color: #232323; }
-    .b-home a :hover {
-      color: tomato; }
+    color: #232323;
+    margin-right: 30px;
+    font-size: 22px;
+    font-weight: bold; }
+    .b-home .link :hover {
+      color: tomato;
+      -webkit-transform: scale(1.1);
+              transform: scale(1.1); }
   .b-home .menuToggle {
-    margin-bottom: 50px;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
     position: relative;
     z-index: 1;
     -webkit-user-select: none;
         -ms-user-select: none;
             user-select: none; }
-  .b-home .home {
-    position: absolute;
-    top: -3px;
-    left: 60px;
-    font-size: 24px;
+  .b-home .logo {
+    text-decoration: none;
+    color: #232323;
+    font-size: 30px;
     font-weight: bold; }
-  .b-home .menuToggle input {
+  .b-home .input {
     margin: 0;
     width: 34px;
     height: 32px;
@@ -406,7 +429,7 @@ button {
     cursor: pointer;
     opacity: 0;
     z-index: 2; }
-  .b-home .menuToggle span {
+  .b-home .line {
     display: block;
     width: 34px;
     height: 4px;
@@ -420,84 +443,82 @@ button {
     transition: background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease, -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease, -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1); }
-  .b-home .menuToggle span:first-child {
+  .b-home .line:first-child {
     -webkit-transform-origin: 0% 0%;
             transform-origin: 0% 0%; }
-  .b-home .menuToggle span:nth-last-child(2) {
+  .b-home .line:nth-last-child(2) {
     -webkit-transform-origin: 0% 100%;
             transform-origin: 0% 100%; }
-  .b-home .menuToggle input:checked ~ span {
+  .b-home .input:checked ~ .line {
     opacity: 1;
     -webkit-transform: rotate(45deg) translate(-2px, -1px);
             transform: rotate(45deg) translate(-2px, -1px);
     background: #000; }
-  .b-home .menuToggle input:checked ~ span:nth-last-child(3) {
+  .b-home .input:checked ~ .line:nth-last-child(3) {
     opacity: 0;
     -webkit-transform: rotate(0deg) scale(0.2, 0.2);
             transform: rotate(0deg) scale(0.2, 0.2); }
-  .b-home .menuToggle input:checked ~ span:nth-last-child(2) {
+  .b-home .input:checked ~ .line:nth-last-child(2) {
     -webkit-transform: rotate(-45deg) translate(0, -1px);
             transform: rotate(-45deg) translate(0, -1px); }
   .b-home .menu {
-    position: absolute;
-    width: 300px;
-    margin: -100px 0 0 -50px;
-    padding: 50px;
-    padding-top: 125px;
-    background: #e3d5bb;
+    display: flex;
+    margin: -60px 0 0 -30px;
+    padding: 30px 0px 30px 80px;
+    background: #e9e9e9;
     list-style-type: none;
-    -webkit-transform-origin: 0% 0%;
-            transform-origin: 0% 0%;
-    -webkit-transform: translate(-100%, 0);
-            transform: translate(-100%, 0);
-    transition: -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
-    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
-    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1); }
-  .b-home .menu li {
-    padding: 10px 0;
-    font-size: 22px; }
-  .b-home .menuToggle input:checked ~ ul {
-    -webkit-transform: none;
-            transform: none; }
+    border-radius: 0 20px 0;
+    transition: -webkit-clip-path 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    transition: clip-path 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    transition: clip-path 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), -webkit-clip-path 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    -webkit-clip-path: circle(0% at 10% 50%);
+            clip-path: circle(0% at 10% 50%); }
+  .b-home .input:checked ~ .menu {
+    -webkit-clip-path: circle(150% at 10% 50%);
+            clip-path: circle(150% at 10% 50%); }
   .b-home .content {
     display: grid;
     grid-template-areas: 'title illustration' 'title illustration' 'form illustration';
-    grid-template-columns: repeat(2, 1fr); }
+    grid-template-columns: repeat(2, 1fr);
+    height: calc(100vh - 170px); }
     .b-home .content .title {
-      height: 440px;
+      display: grid;
+      grid-template-areas: 'a' 'text' 'b';
+      height: calc((100vh - 170px) / 1.5);
       opacity: 0;
-      width: 75%;
-      margin: 0;
-      font-size: 70px;
-      font-weight: bold;
-      line-height: 90px;
-      -webkit-transform: translate(100px, 25%);
-              transform: translate(100px, 25%);
+      -webkit-transform: translate(100px, 0);
+              transform: translate(100px, 0);
       -webkit-animation: title 1s ease-in-out forwards 1.5s;
               animation: title 1s ease-in-out forwards 1.5s;
       grid-area: title;
-      color: black; }
+      align-items: center; }
 
 @-webkit-keyframes title {
   to {
     opacity: 1;
-    -webkit-transform: translate(0, 25%);
-            transform: translate(0, 25%); } }
+    -webkit-transform: none;
+            transform: none; } }
 
 @keyframes title {
   to {
     opacity: 1;
-    -webkit-transform: translate(0, 25%);
-            transform: translate(0, 25%); } }
+    -webkit-transform: none;
+            transform: none; } }
+    .b-home .content .text {
+      grid-area: text;
+      font-size: 80px;
+      font-weight: bold;
+      line-height: 100px;
+      font-family: 'Font Awesome 5 Free'; }
     .b-home .content .form {
       opacity: 0;
-      padding-top: 55px;
-      height: 220px;
+      height: calc((100vh - 170px) / 3);
+      gap: 2px;
       grid-area: form;
       justify-content: space-between;
       display: grid;
       grid-template-columns: repeat(1, 1fr 1fr);
-      grid-template-areas: 'dropdown location';
+      grid-template-areas: 'a b' 'dropdown location' 'c d';
       -webkit-animation: form 1s ease forwards 2s;
               animation: form 1s ease forwards 2s; }
 
@@ -510,7 +531,7 @@ button {
     opacity: 1; } }
     .b-home .content .box {
       width: 100%;
-      height: 220px; }
+      height: calc((100vh - 170px) / 3); }
     .b-home .content .illustration {
       display: grid;
       grid-area: illustration;
@@ -687,8 +708,8 @@ button {
       height: 200%;
       border-radius: 50%;
       background: #2a563f;
-      -webkit-transform: translate(0, 0);
-              transform: translate(0, 0);
+      -webkit-transform: none;
+              transform: none;
       -webkit-animation: shape6 0.5s linear forwards;
               animation: shape6 0.5s linear forwards;
       -webkit-clip-path: polygon(50% 50%, 50% 0, 0 0, 50% 0);
@@ -710,13 +731,16 @@ button {
     -webkit-clip-path: polygon(50% 50%, 50% 0, 0 0, 0 50%);
             clip-path: polygon(50% 50%, 50% 0, 0 0, 0 50%); } }
     .b-home .content .shape7 {
-      padding-top: 55px;
+      display: grid;
+      grid-template-areas: 'a b' 'submit c' 'd e';
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
       width: 100%;
       height: 100%;
       border-radius: 50%;
       background: #f8bcbc;
-      -webkit-transform: translate(0, 0);
-              transform: translate(0, 0);
+      -webkit-transform: none;
+              transform: none;
       -webkit-animation: shape7 0.5s linear forwards 1s;
               animation: shape7 0.5s linear forwards 1s;
       -webkit-clip-path: polygon(50% 50%, 50% 0, 50% 0, 50% 0, 50% 0, 50% 0, 50% 0, 50% 0);
@@ -861,132 +885,25 @@ button {
   100% {
     -webkit-clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 50%, 100% 100%, 0 100%, 0 0, 50% 0);
             clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 50%, 100% 100%, 0 100%, 0 0, 50% 0); } }
-    .b-home .content .shape11 {
-      overflow: hidden;
-      position: absolute;
-      z-index: -1;
-      box-shadow: 0 0 50px 10px rgba(0, 0, 0, 0.1);
-      background: #fff;
-      -webkit-animation: shape11 1.5s ease forwards 1.5s;
-              animation: shape11 1.5s ease forwards 1.5s; }
-
-@-webkit-keyframes shape11 {
-  from {
-    opacity: 0;
-    top: 490px;
-    right: 545px;
-    width: 436px;
-    height: 109px; }
-  to {
-    opacity: 0.5;
-    top: 490px;
-    right: 545px;
-    width: 436px;
-    height: 109px; } }
-
-@keyframes shape11 {
-  from {
-    opacity: 0;
-    top: 490px;
-    right: 545px;
-    width: 436px;
-    height: 109px; }
-  to {
-    opacity: 0.5;
-    top: 490px;
-    right: 545px;
-    width: 436px;
-    height: 109px; } }
-    .b-home .content .shape12 {
-      overflow: hidden;
-      position: absolute;
-      background: #e3a3a3;
-      -webkit-animation: shape12 1.5s ease forwards 1.5s;
-              animation: shape12 1.5s ease forwards 1.5s;
-      -webkit-clip-path: circle(100% at 100% 50%);
-              clip-path: circle(100% at 100% 50%); }
-
-@-webkit-keyframes shape12 {
-  from {
-    opacity: 0;
-    top: 490px;
-    right: 545px;
-    width: 109px;
-    height: 109px; }
-  to {
-    opacity: 0.5;
-    top: 490px;
-    right: 545px;
-    width: 109px;
-    height: 109px; } }
-
-@keyframes shape12 {
-  from {
-    opacity: 0;
-    top: 490px;
-    right: 545px;
-    width: 109px;
-    height: 109px; }
-  to {
-    opacity: 0.5;
-    top: 490px;
-    right: 545px;
-    width: 109px;
-    height: 109px; } }
-    .b-home .content .shape13 {
-      overflow: hidden;
-      position: absolute;
-      z-index: -1;
-      box-shadow: 0 0 50px 10px rgba(0, 0, 0, 0.1);
-      background: #fff;
-      -webkit-animation: shape13 1.5s ease forwards 1.5s;
-              animation: shape13 1.5s ease forwards 1.5s; }
-
-@-webkit-keyframes shape13 {
-  from {
-    opacity: 0;
-    top: 490px;
-    right: 984px;
-    width: 327px;
-    height: 109px; }
-  to {
-    opacity: 0.5;
-    top: 490px;
-    right: 984px;
-    width: 327px;
-    height: 109px; } }
-
-@keyframes shape13 {
-  from {
-    opacity: 0;
-    top: 490px;
-    right: 984px;
-    width: 327px;
-    height: 109px; }
-  to {
-    opacity: 0.5;
-    top: 490px;
-    right: 984px;
-    width: 327px;
-    height: 109px; } }
     .b-home .content .dropdown {
+      z-index: 1;
       padding: 0 40px;
       grid-area: dropdown;
-      height: 50%;
       border: none;
       outline: none;
-      background-color: rgba(0, 0, 0, 0.1);
+      background-color: #fefefe;
       font-family: 'Font Awesome 5 Free';
-      font-weight: bold; }
+      font-weight: bold;
+      box-shadow: -20px 20px 50px -20px rgba(0, 0, 0, 0.1); }
     .b-home .content .location {
       padding: 0 40px;
-      height: 50%;
       grid-area: location;
       border: none;
       outline: none;
-      background-color: rgba(0, 0, 0, 0.1);
+      background-color: #fefefe;
       font-family: 'Font Awesome 5 Free';
-      font-weight: bold; }
+      font-weight: bold;
+      box-shadow: -20px 20px 50px -20px rgba(0, 0, 0, 0.1); }
       .b-home .content .location::-webkit-input-placeholder {
         color: black; }
       .b-home .content .location:-ms-input-placeholder {
@@ -995,15 +912,14 @@ button {
         color: black; }
     .b-home .content .submit {
       opacity: 0;
-      height: 50%;
-      width: 50%;
       font-size: 24px;
-      border: none;
-      outline: none;
       color: white;
+      grid-area: submit;
       background-color: rgba(0, 0, 0, 0.1);
       -webkit-animation: submit 1s ease forwards 2s;
-              animation: submit 1s ease forwards 2s; }
+              animation: submit 1s ease forwards 2s;
+      -webkit-clip-path: circle(100% at 100% 50%);
+              clip-path: circle(100% at 100% 50%); }
 
 @-webkit-keyframes submit {
   to {

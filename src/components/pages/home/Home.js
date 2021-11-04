@@ -14,34 +14,44 @@ class Home extends Component {
   render() {
     return (
       <div className="b-home">
-        <div className="menuToggle">
-          <a className="home" href="/home">
+        <div className="header">
+          <div className="menuToggle">
+            <input type="checkbox" className="input" />
+            <span className="line"></span>
+            <span className="line"></span>
+            <span className="line"></span>
+            <ul className="menu">
+              <a href="/home" className="link">
+                <li>Home</li>
+              </a>
+              <a href="/about" className="link">
+                <li>About</li>
+              </a>
+              <a href="/info" className="link">
+                <li>Info</li>
+              </a>
+              <a href="/contact" className="link">
+                <li>Contact</li>
+              </a>
+              <a href="/more" className="link">
+                <li>More</li>
+              </a>
+            </ul>
+          </div>
+          <a className="logo" href="/home">
             anaïs
           </a>
-          <input type="checkbox" />
-          <span></span>
-          <span></span>
-          <span></span>
-          <ul className="menu">
-            <a href="/home">
-              <li>Home</li>
-            </a>
-            <a href="/about">
-              <li>About</li>
-            </a>
-            <a href="/info">
-              <li>Info</li>
-            </a>
-            <a href="/contact">
-              <li>Contact</li>
-            </a>
-            <a href="/more">
-              <li>Show me more</li>
-            </a>
-          </ul>
         </div>
         <div className="content">
-          <h1 className="title">The best French lesson are with Anaïs</h1>
+          <div className="title">
+            <p className="text">
+              The best
+              <br />
+              French lesson
+              <br />
+              are with Anaïs
+            </p>
+          </div>
           <div className="form" action="/">
             <select name="cars" id="cars" className="dropdown" onChange={this.onChange}>
               <option value="" disabled selected hidden>
